@@ -1,0 +1,16 @@
+.main-info {
+  display: flex;
+}
+.main-info img {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+}
+
+.related-comics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.related-comics span {
+  cursor: pointer;
+}

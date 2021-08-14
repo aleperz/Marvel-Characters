@@ -1,0 +1,23 @@
+<div>
+  <div class="main-info">
+    <img
+      src="{{ character.thumbnail.path }}.{{ character.thumbnail.extension }}"
+      alt="{{ character.name }}"
+    />
+    <div>
+      <h1>{{ character.name }}</h1>
+      <p>{{ character.description || "No Available Description" }}</p>
+      <app-button-more></app-button-more>
+    </div>
+  </div>
+  <div>
+    <h2>Related comics</h2>
+    <div class="related-comics">
+      <span
+        *ngFor="let comic of character.comics.items"
+        (click)="openModal(comic.resourceURI)"
+        >{{ comic.name }}</span
+      >
+    </div>
+  </div>
+</div>

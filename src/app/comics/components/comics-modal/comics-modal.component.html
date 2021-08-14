@@ -1,0 +1,16 @@
+<div class="modal-container">
+  <div class="modal">
+    <div class="main-description">
+      <img
+        src="{{ comic.images[0].path }}.{{ comic.images[0].extension }}"
+        alt="{{ comic.title }}"
+      />
+      <div>
+        <h3>{{ comic.title }}</h3>
+        <p>{{ comic.description }}</p>
+      </div>
+    </div>
+    <div></div>
+    <button (click)="close()">x</button>
+  </div>
+</div>
