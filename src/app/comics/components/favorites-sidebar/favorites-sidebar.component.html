@@ -1,1 +1,7 @@
-<p>favorites-sidebar works!</p>
+<div class="sidebar">
+  <app-favorite-comic-card
+    (deleteComic)="deleteFavComic(i)"
+    *ngFor="let comic of favoriteComicsList; index as i"
+    [comicFav]="comic"
+  ></app-favorite-comic-card>
+</div>

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ComicId } from 'src/app/comics/models/comics.interface';
-import { Character, Comics } from '../../models/character.interface';
+import { Character, Data } from '../../models/character.interface';
 import { MarvelCharactersService } from '../../services/marvel-characters.service';
 
 @Component({
@@ -11,20 +11,27 @@ import { MarvelCharactersService } from '../../services/marvel-characters.servic
 export class CharactersListComponent implements OnInit {
   comicSelected!: ComicId;
   openModal: boolean = false;
+  characters: Character[] = [];
+  offset: number = 0;
+  pageToShow: number = 1;
+  charsNumber: string = '10';
+  sortBy: string = 'name';
 
   constructor(private charactersService: MarvelCharactersService) {}
 
-  characters: Character[] = [];
-
   ngOnInit(): void {
-    this.getCharacters();
+    this.getCharacters(+this.charsNumber, this.sortBy, this.offset);
   }
 
-  getCharacters() {
-    this.charactersService.getCharacters().subscribe((data) => {
-      this.characters = data.data.results;
-      console.log(this.characters);
-    });
+  getCharacters(charsPage: number, sortOpt: string, offS: number) {
+    console.log(charsPage);
+
+    this.charactersService
+      .getCharacters(charsPage, sortOpt, offS)
+      .subscribe((data) => {
+        this.characters = data.data.results;
+        console.log(this.characters);
+      });
   }
 
   comicShow(comicUrl: string) {
@@ -36,5 +43,21 @@ export class CharactersListComponent implements OnInit {
 
   closePopup() {
     this.openModal = false;
+  }
+
+  page(page: number) {
+    this.pageToShow = page;
+    this.getCharacters(+this.charsNumber, this.sortBy, this.offset);
+  }
+  numberCharByPage(chars: string) {
+    this.charsNumber = chars;
+    this.offset = (this.pageToShow - 1) * +chars;
+    console.log(this.charsNumber);
+    this.getCharacters(+this.charsNumber, this.sortBy, this.offset);
+  }
+
+  sortOption(sort: string) {
+    this.sortBy = sort;
+    this.getCharacters(+this.charsNumber, this.sortBy, this.offset);
   }
 }

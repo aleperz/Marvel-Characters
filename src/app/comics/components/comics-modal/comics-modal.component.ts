@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ComicId } from '../../models/comics.interface';
-import { FavoriteCharactersService } from '../../services/favorite-characters.service';
+import { FavoriteComicsService } from '../../services/favorite-comics.service';
 
 @Component({
   selector: 'app-comics-modal',
@@ -16,7 +16,7 @@ export class ComicsModalComponent implements OnInit {
 
   comicInFavoriteList: boolean = true;
 
-  constructor(private favoritesService: FavoriteCharactersService) {}
+  constructor(private favoritesService: FavoriteComicsService) {}
 
   ngOnInit(): void {
     console.log(this.comic);

@@ -1,3 +1,11 @@
+export interface Data {
+  offset: number;
+  limit: number;
+  total: number;
+  count: number;
+  results: Character[];
+}
+
 export interface Character {
   id: number;
   name: string;
@@ -9,7 +17,7 @@ export interface Character {
   series?: Comics;
   stories?: Stories;
   events?: Comics;
-  urls?: URL[];
+  urls: URL[];
 }
 
 export interface Comics {

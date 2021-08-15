@@ -4,8 +4,9 @@ import { ComicId } from '../models/comics.interface';
 @Injectable({
   providedIn: 'root',
 })
-export class FavoriteCharactersService {
+export class FavoriteComicsService {
   favoritesListComics: ComicId[] = [];
+
   constructor() {
     if (localStorage.getItem('favoriteListComics')) {
       this.favoritesListComics = JSON.parse(
@@ -25,5 +26,13 @@ export class FavoriteCharactersService {
 
   getFavoritesList() {
     return this.favoritesListComics;
+  }
+
+  deleteFavoriteComic(index: number) {
+    this.favoritesListComics.splice(index, 1);
+    localStorage.setItem(
+      'favoriteListComics',
+      JSON.stringify(this.favoritesListComics)
+    );
   }
 }

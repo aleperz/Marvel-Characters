@@ -1,0 +1,12 @@
+.card-container {
+  position: relative;
+}
+.button-delete {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+}
+.imagen-comic {
+  height: 400px;
+  width: 250px;
+}

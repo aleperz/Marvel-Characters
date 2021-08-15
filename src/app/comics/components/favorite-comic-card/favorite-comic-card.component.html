@@ -1,0 +1,14 @@
+<div class="card-container">
+  <img
+    class="button-delete"
+    src="../../../../assets/icons/btn-delete.png"
+    alt="button Delete"
+    (click)="deleteFavComic()"
+  />
+  <img
+    class="imagen-comic"
+    src="{{ comicFav.images[0].path }}.{{ comicFav.images[0].extension }}"
+    alt="{{ comicFav.title }}"
+  />
+  <h3>{{ comicFav.title }}</h3>
+</div>
