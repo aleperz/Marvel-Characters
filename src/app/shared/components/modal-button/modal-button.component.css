@@ -1,0 +1,11 @@
+.buy {
+  background-color: #dcdcdc;
+  cursor: pointer;
+}
+.favorite {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+.onFavorite {
+  background-color: #322827;
+}

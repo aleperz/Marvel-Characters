@@ -12,5 +12,26 @@
     </div>
     <div></div>
     <button (click)="close()">x</button>
+    <div class="modalButton-container">
+      <app-modal-button
+        *ngIf="!validateFavoriteList()"
+        type="favorite"
+        urlImg="../../../../assets/icons/btn-favourites-default.png"
+        text="ADD TO FAVORITES"
+        (addToFavorite)="addFavoriteComic()"
+      ></app-modal-button>
+      <app-modal-button
+        *ngIf="validateFavoriteList()"
+        type="onFavorite"
+        urlImg="../../../../assets/icons/btn-favourites-primary.png"
+        text="ADDED TO FAVORITES"
+        (addToFavorite)="addFavoriteComic()"
+      ></app-modal-button>
+      <app-modal-button
+        type="buy"
+        urlImg="../../../../assets/icons/shopping-cart-primary.png"
+        text="BUY FOR ${{ comic.prices[0].price }}"
+      ></app-modal-button>
+    </div>
   </div>
 </div>

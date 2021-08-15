@@ -1,0 +1,7 @@
+<div
+  (click)="type === 'favorite' ? addFavorite() : buyComic()"
+  class="{{ type }}"
+>
+  <img [src]="urlImg" />
+  <span>{{ text }}</span>
+</div>

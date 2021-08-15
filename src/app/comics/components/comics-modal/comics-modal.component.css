@@ -33,3 +33,6 @@
 .main-description {
   display: flex;
 }
+.modalButton-container {
+  display: flex;
+}
