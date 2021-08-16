@@ -1,0 +1,12 @@
+div {
+  background-color: #2d2727;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  width: 100%;
+}
+div img {
+  width: 130px;
+  height: 40px;
+}
