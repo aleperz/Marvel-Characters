@@ -1,1 +1,5 @@
-<p>pagination works!</p>
+<button class="previous" (click)="previousPage()"></button>
+<button (click)="sendPage(page)" *ngFor="let page of pagesArray">
+  {{ page }}
+</button>
+<button class="next" (click)="nextPage()"></button>

@@ -1,0 +1,15 @@
+.previous {
+  width: 40px;
+  height: 40px;
+  background-image: url("../../../../assets/icons/btn_arrow_left.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.next {
+  width: 40px;
+  height: 40px;
+  background-image: url("../../../../assets/icons/btn_arrow_right.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}

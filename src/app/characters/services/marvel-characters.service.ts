@@ -45,14 +45,20 @@ export class MarvelCharactersService {
     return this.http.get<any>(`${comicUrl}`, params);
   }
 
-  searchCharacter(name: string) {
-    return this.http
-      .get<any>(`${this.urlChar}&hash=${this.hash}?q=${name}&_limit=4`)
-      .subscribe((data) => {
-        this.searchResults = data.data.results;
-        this.searchCharacterSubject.next(this.searchResults);
-        console.log(this.searchResults);
-      });
+  searchCharacter(searchChar: string) {
+    const params = {
+      params: {
+        ts: this.ts,
+        apikey: this.apikey,
+        hash: this.hash,
+        nameStartsWith: searchChar,
+      },
+    };
+    return this.http.get<any>(`${this.urlChar}`, params).subscribe((data) => {
+      this.searchResults = data.data.results;
+      this.searchCharacterSubject.next(this.searchResults);
+      console.log(this.searchResults);
+    });
   }
 
   getFoundCharacters() {
