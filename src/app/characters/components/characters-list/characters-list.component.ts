@@ -1,5 +1,6 @@
 import { Component, getDebugNode, Input, OnInit } from '@angular/core';
-import { ComicId } from 'src/app/comics/models/comics.interface';
+import { EMPTY, Observable } from 'rxjs';
+import { Characters, ComicId } from 'src/app/comics/models/comics.interface';
 import { Character, Data } from '../../models/character.interface';
 import { MarvelCharactersService } from '../../services/marvel-characters.service';
 
@@ -27,6 +28,14 @@ export class CharactersListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCharacters(+this.charsNumber, this.sortBy, this.offset);
+    this.charactersService.getFoundCharacters().subscribe((charsFound) => {
+      console.log(charsFound);
+      if (charsFound === null) {
+        this.getCharacters(+this.charsNumber, this.sortBy, this.offset);
+      } else {
+        this.characters = charsFound;
+      }
+    });
   }
 
   getCharacters(charsByPage: number, sortOpt: string, offSet: number) {

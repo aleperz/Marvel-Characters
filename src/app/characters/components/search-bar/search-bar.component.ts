@@ -10,14 +10,12 @@ import { MarvelCharactersService } from '../../services/marvel-characters.servic
 })
 export class SearchBarComponent implements OnInit {
   @ViewChild('txtBuscar') txtBuscar!: ElementRef<HTMLInputElement>;
-
   constructor(private characterService: MarvelCharactersService) {}
 
   ngOnInit(): void {}
 
   buscar() {
     const valor = this.txtBuscar.nativeElement.value;
-    this.characterService.searchCharacter(valor); /* 
-    this.txtBuscar.nativeElement.value = ''; */
+    this.characterService.searchCharacter(valor);
   }
 }
