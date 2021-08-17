@@ -1,0 +1,10 @@
+div {
+  background-color: #2d2727;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+div span {
+  color: #ffff;
+  margin-left: 280px;
+}

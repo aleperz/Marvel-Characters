@@ -2,8 +2,9 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin: 15px;
+  margin-bottom: 35px;
   box-sizing: border-box;
+  padding-left: 20px;
 }
 
 .drop-down-container {
@@ -11,16 +12,25 @@
 }
 
 .character-container-main {
-  padding: 15px;
   background-color: #f4f4f4;
 }
 
 .character-container {
-  padding-right: 20px;
+  padding-top: 20px;
+  padding-right: 28px;
 }
 
 .character-list {
   display: grid;
+  justify-content: center;
   grid-template-columns: 1fr 1fr;
-  width: 100%;
+  width: 95%;
+  gap: 40px;
+  margin-left: 50px;
+}
+
+.pagination-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

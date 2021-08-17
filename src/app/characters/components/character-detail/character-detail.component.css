@@ -1,10 +1,47 @@
+.card-container {
+  height: 400px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  padding: 20px;
+  position: relative;
+}
+
+p {
+  height: 150px;
+  display: -webkit-box;
+  max-height: 150px;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .main-info {
   display: flex;
 }
 .main-info img {
-  height: 120px;
-  width: 120px;
+  height: 180px;
+  width: 180px;
   border-radius: 50%;
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.info-container {
+  position: absolute;
+  width: 50%;
+  top: -12px;
+  left: 50%;
+}
+.name-character {
+  color: #4a403f;
+  margin-bottom: 10px;
+}
+
+.comics-title {
+  color: #8a8181;
 }
 
 .related-comics {
@@ -13,4 +50,7 @@
 }
 .related-comics span {
   cursor: pointer;
+}
+.comics-container {
+  margin-top: 230px;
 }

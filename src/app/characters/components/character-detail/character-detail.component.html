@@ -1,23 +1,21 @@
-<div>
+<div class="card-container">
   <div class="main-info">
     <img
       src="{{ character.thumbnail.path }}.{{ character.thumbnail.extension }}"
       alt="{{ character.name }}"
     />
-    <div>
-      <h1>{{ character.name }}</h1>
-      <p>{{ character.description || "No Available Description" }}</p>
+    <div class="info-container">
+      <h3 class="name-character">{{ character.name | uppercase }}</h3>
+      <p>{{ character.description || 'No Available Description' }}</p>
       <app-button-more [urlchar]="character.urls[0].url"></app-button-more>
     </div>
   </div>
-  <div>
-    <h2>Related comics</h2>
+  <div class="comics-container">
+    <h3 class="comics-title">Related comics</h3>
     <div class="related-comics">
-      <span
-        *ngFor="let comic of character.comics.items"
-        (click)="openModal(comic.resourceURI)"
-        >{{ comic.name }}</span
-      >
+      <span *ngFor="let comic of arrayComics" (click)="openModal(comic.resourceURI)">{{
+        comic.name
+      }}</span>
     </div>
   </div>
 </div>

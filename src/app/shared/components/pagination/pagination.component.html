@@ -1,5 +1,22 @@
-<button class="previous" (click)="previousPage()"></button>
-<button (click)="sendPage(page)" *ngFor="let page of pagesArray">
-  {{ page }}
-</button>
-<button class="next" (click)="nextPage()"></button>
+<ul>
+  <li
+    [ngClass]="{ 'previous-disabled': pageButton === 1, previous: pageButton !== 1 }"
+    class="button-page"
+    (click)="previousPage()"
+  ></li>
+  <li *ngIf="leftPoints" class="number-button button-page">...</li>
+  <li
+    class="number-button button-page"
+    [ngClass]="{ active: pageButton === page }"
+    (click)="sendPage(page)"
+    *ngFor="let page of pagesArray"
+  >
+    {{ page }}
+  </li>
+  <li *ngIf="rightPoints" class="number-button button-page">...</li>
+  <li
+    class="button-page"
+    [ngClass]="{ 'next-disabled': pageButton === totalPages, next: pageButton !== totalPages }"
+    (click)="nextPage()"
+  ></li>
+</ul>

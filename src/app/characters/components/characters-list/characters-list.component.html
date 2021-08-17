@@ -27,5 +27,11 @@
     ></app-comics-modal>
   </div>
 
-  <app-pagination [pagesArray]="buttonsToShow" (pageSelected)="page($event)"></app-pagination>
+  <div class="pagination-section">
+    <app-pagination
+      [pagesArray]="buttonsToShow"
+      [totalPages]="numberOfPages"
+      (pageSelected)="page($event)"
+    ></app-pagination>
+  </div>
 </div>
