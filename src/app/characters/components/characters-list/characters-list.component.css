@@ -1,4 +1,26 @@
+.drop-down-section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 15px;
+  box-sizing: border-box;
+}
+
+.drop-down-container {
+  display: flex;
+}
+
+.character-container-main {
+  padding: 15px;
+  background-color: #f4f4f4;
+}
+
+.character-container {
+  padding-right: 20px;
+}
+
 .character-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  width: 100%;
 }

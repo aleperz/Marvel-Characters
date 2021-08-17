@@ -1,4 +1,8 @@
 <div class="sidebar">
+  <app-title-section
+    urlImage="../../../../assets/icons/favourites.png"
+    text="My favorites"
+  ></app-title-section>
   <app-favorite-comic-card
     (deleteComic)="deleteFavComic(i)"
     *ngFor="let comic of favoriteComicsList; index as i"

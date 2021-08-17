@@ -12,7 +12,12 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     ModalButtonComponent,
     PaginationComponent,
   ],
-  exports: [ButtonMoreComponent, ModalButtonComponent, PaginationComponent],
+  exports: [
+    ButtonMoreComponent,
+    ModalButtonComponent,
+    PaginationComponent,
+    TitleSectionComponent,
+  ],
   imports: [CommonModule],
 })
 export class SharedModule {}

@@ -1,25 +1,31 @@
-<div>
-  <app-page-dropdown
-    (charByPage)="numberCharByPage($event)"
-  ></app-page-dropdown>
-  <app-sort-dropdown (sortBy)="sortOption($event)"></app-sort-dropdown>
+<div class="character-container-main">
+  <div class="character-container">
+    <div class="drop-down-section">
+      <app-title-section
+        urlImage="../../../../assets/icons/characters.png"
+        text="Characters"
+      ></app-title-section>
+
+      <div class="drop-down-container">
+        <app-page-dropdown (charByPage)="numberCharByPage($event)"></app-page-dropdown>
+        <app-sort-dropdown (sortBy)="sortOption($event)"></app-sort-dropdown>
+      </div>
+    </div>
+
+    <div class="character-list">
+      <app-character-detail
+        *ngFor="let character of characters"
+        [character]="character"
+        (comicModal)="comicShow($event)"
+      ></app-character-detail>
+    </div>
+
+    <app-comics-modal
+      *ngIf="openModal"
+      [comic]="comicSelected"
+      (closeModal)="closePopup()"
+    ></app-comics-modal>
+  </div>
+
+  <app-pagination [pagesArray]="buttonsToShow" (pageSelected)="page($event)"></app-pagination>
 </div>
-
-<div class="character-list">
-  <app-character-detail
-    *ngFor="let character of characters"
-    [character]="character"
-    (comicModal)="comicShow($event)"
-  ></app-character-detail>
-
-  <app-comics-modal
-    *ngIf="openModal"
-    [comic]="comicSelected"
-    (closeModal)="closePopup()"
-  ></app-comics-modal>
-</div>
-
-<app-pagination
-  [pagesArray]="buttonsToShow"
-  (pageSelected)="page($event)"
-></app-pagination>

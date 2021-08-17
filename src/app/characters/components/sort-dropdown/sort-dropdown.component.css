@@ -1,8 +1,27 @@
-select {
-  border-radius: 10px;
-  height: 40px;
-  width: 150px;
-  color: #06adf5;
+.styleSelect select {
+  border-radius: 1px;
+  height: 50px;
+  width: 250px;
+  color: #554b4a;
   font-size: 18px;
-  margin: auto;
+  background: transparent;
+  line-height: 1;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 5px;
+  outline-width: 0;
+}
+
+.styleSelect {
+  display: flex;
+  align-items: center;
+  width: 250px;
+  height: 50px;
+  overflow: hidden;
+  background: url('../../../../assets/icons/flecha-hacia-abajo.png') no-repeat 210px 50% #fff;
+  background-size: 20px 20px;
+  border: 1px solid #dcdcdc;
+  margin-left: 10px;
 }

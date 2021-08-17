@@ -1,5 +1,6 @@
 .card-container {
   position: relative;
+  margin-bottom: 50px;
 }
 .button-delete {
   position: absolute;
@@ -7,6 +8,10 @@
   top: -10px;
 }
 .imagen-comic {
-  height: 400px;
-  width: 250px;
+  height: 300px;
+  width: 200px;
+}
+
+.card-container h3 {
+  margin-top: 10px;
 }

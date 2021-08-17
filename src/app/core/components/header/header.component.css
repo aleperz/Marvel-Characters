@@ -4,7 +4,7 @@ div {
   display: flex;
   align-items: center;
   padding-left: 15px;
-  width: 100%;
+  box-shadow: 0 2px 5px #999999;
 }
 div img {
   width: 130px;
