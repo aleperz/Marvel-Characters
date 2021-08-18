@@ -1,5 +1,9 @@
 button {
   background-color: #ec1e23;
   height: 40px;
-  width: 60px;
+  width: 100px;
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
 }

@@ -12,7 +12,8 @@ li.number-button {
   justify-content: center;
   align-items: center;
 }
-li.number-button {
+li.number-button:hover {
+  background-color: #8d8d8d;
 }
 li.active {
   color: black;

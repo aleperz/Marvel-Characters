@@ -1,13 +1,13 @@
 <div class="modal-container">
   <div class="modal">
-    <button (click)="close()">x</button>
+    <div class="close-button" (click)="close()"></div>
     <div class="main-description">
       <img
         src="{{ comic.images[0].path }}.{{ comic.images[0].extension }}"
         alt="{{ comic.title }}"
       />
-      <div>
-        <h3>{{ comic.title }}</h3>
+      <div class="description">
+        <h3>{{ comic.title | uppercase }}</h3>
         <p>{{ comic.description }}</p>
       </div>
     </div>
@@ -32,6 +32,7 @@
         type="buy"
         urlImg="../../../../assets/icons/shopping-cart-primary.png"
         text="BUY FOR ${{ comic.prices[0].price }}"
+        urlPurchase="{{ comic.urls[0].url }}"
       ></app-modal-button>
     </div>
   </div>

@@ -13,9 +13,9 @@
   <div class="comics-container">
     <h3 class="comics-title">Related comics</h3>
     <div class="related-comics">
-      <span *ngFor="let comic of arrayComics" (click)="openModal(comic.resourceURI)">{{
-        comic.name
-      }}</span>
+      <div class="comics" *ngFor="let comic of arrayComics">
+        <span (click)="openModal(comic.resourceURI)">{{ comic.name }}</span>
+      </div>
     </div>
   </div>
 </div>
