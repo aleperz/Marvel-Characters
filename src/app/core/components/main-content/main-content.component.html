@@ -1,4 +1,4 @@
 <div class="content">
-  <app-characters-list></app-characters-list>
-  <app-favorites-sidebar></app-favorites-sidebar>
+  <app-characters-list (charactersShowed)="characterReceived($event)"></app-characters-list>
+  <app-favorites-sidebar [comicsRandom]="randomComics"></app-favorites-sidebar>
 </div>

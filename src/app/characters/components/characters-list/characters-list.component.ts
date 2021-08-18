@@ -1,7 +1,6 @@
-import { Component, getDebugNode, Input, OnInit } from '@angular/core'
-import { EMPTY, Observable } from 'rxjs'
-import { Characters, ComicId } from 'src/app/comics/models/comics.interface'
-import { Character, Data } from '../../models/character.interface'
+import { Component, EventEmitter, OnInit, Output } from '@angular/core'
+import { ComicId } from 'src/app/comics/models/comics.interface'
+import { Character, ComicsItem } from '../../models/character.interface'
 import { MarvelCharactersService } from '../../services/marvel-characters.service'
 
 @Component({
@@ -10,6 +9,8 @@ import { MarvelCharactersService } from '../../services/marvel-characters.servic
   styleUrls: ['./characters-list.component.css']
 })
 export class CharactersListComponent implements OnInit {
+  @Output() charactersShowed = new EventEmitter<Character[]>()
+
   comicSelected!: ComicId
   openModal = false
   characters: Character[] = []
@@ -23,12 +24,13 @@ export class CharactersListComponent implements OnInit {
   leftButtons: number[] = []
   rightButtons: number[] = []
   buttonsToShow: number[] = []
+  comicsArray: ComicsItem[] = []
 
   constructor(private charactersService: MarvelCharactersService) {}
 
   ngOnInit(): void {
     this.getCharacters(+this.charsNumber, this.sortBy, this.offset)
-    this.charactersService.getFoundCharacters().subscribe((charsFound) => {
+    this.charactersService.getFoundCharacters().subscribe((charsFound: Character[] | null) => {
       console.log(charsFound)
       if (charsFound === null) {
         this.getCharacters(+this.charsNumber, this.sortBy, this.offset)
@@ -39,18 +41,33 @@ export class CharactersListComponent implements OnInit {
   }
 
   getCharacters(charsByPage: number, sortOpt: string, offSet: number): void {
-    this.charactersService.getCharacters(charsByPage, sortOpt, offSet).subscribe((data) => {
-      this.characters = data.data.results
-      this.totalCharacters = data.data.total
-      this.pagination(this.totalCharacters, charsByPage)
-    })
+    this.charactersService
+      .getCharacters(charsByPage, sortOpt, offSet)
+      .subscribe((data: { data: { results: Character[]; total: number } }) => {
+        this.characters = data.data.results
+        this.totalCharacters = data.data.total
+
+        this.charactersShowed.emit(this.characters)
+
+        /*  for (const character of this.characters) {
+          this.comicsArray.push(...character.comics.items)
+        } */
+
+        /* console.log(this.characters)
+
+        console.log(this.comicsArray) */
+
+        this.pagination(this.totalCharacters, charsByPage)
+      })
   }
 
   comicShow(comicUrl: string): void {
-    this.charactersService.getComic(comicUrl).subscribe((comicData) => {
-      this.comicSelected = comicData.data.results[0]
-      this.openModal = true
-    })
+    this.charactersService
+      .getComic(comicUrl)
+      .subscribe((comicData: { data: { results: ComicId[] } }) => {
+        this.comicSelected = comicData.data.results[0]
+        this.openModal = true
+      })
   }
 
   closePopup(): void {
